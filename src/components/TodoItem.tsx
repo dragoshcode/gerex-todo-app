@@ -2,7 +2,7 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { Todo } from '../interface';
-import './styles.scss'
+import './styles.scss';
 
 interface Props {
   todo: Todo;
@@ -11,9 +11,22 @@ interface Props {
 }
 
 const TodoItem: React.FC<Props> = ({ todo, todos, setTodos }) => {
+  const handleDone = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
   return (
     <form className='todos__item'>
-      <span className='todos__item--data'>{todo.todo}</span>
+      {todo.isDone ? (
+        <s className='todos__item--data'>{todo.todo}</s>
+      ) : (
+        <span className='todos__item--data'>{todo.todo}</span>
+      )}
+
       <div>
         <span className='icon'>
           <AiOutlineEdit />
@@ -22,7 +35,7 @@ const TodoItem: React.FC<Props> = ({ todo, todos, setTodos }) => {
           <AiOutlineDelete />
         </span>
         <span className='icon'>
-          <AiOutlineCheck />
+          <AiOutlineCheck onClick={() => handleDone(todo.id)} />
         </span>
       </div>
     </form>
