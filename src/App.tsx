@@ -5,6 +5,7 @@ import './App.scss';
 import logo from './assets/logo.png';
 
 import InputField from './components/InputField';
+import TodoList from './components/TodoList';
 
 import { Todo } from './interface';
 
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         <img src={logo} alt='logo' />
       </div>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      <TodoList todos={todos} setTodos={setTodos}/>
     </div>
   );
 };
