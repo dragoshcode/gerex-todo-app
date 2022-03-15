@@ -19,6 +19,10 @@ const TodoItem: React.FC<Props> = ({ todo, todos, setTodos }) => {
     );
   };
 
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <form className='todos__item'>
       {todo.isDone ? (
@@ -32,7 +36,7 @@ const TodoItem: React.FC<Props> = ({ todo, todos, setTodos }) => {
           <AiOutlineEdit />
         </span>
         <span className='icon'>
-          <AiOutlineDelete />
+          <AiOutlineDelete onClick={() => handleDelete(todo.id)} />
         </span>
         <span className='icon'>
           <AiOutlineCheck onClick={() => handleDone(todo.id)} />
