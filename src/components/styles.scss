@@ -61,6 +61,11 @@
     background-color: white;
     padding: 0.7rem;
 
+    &--text {
+      outline: none;
+      width: inherit;
+    }
+
     &--data {
       flex: 1;
       padding: 5px;
