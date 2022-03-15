@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.scss';
+
 import logo from './assets/logo.png';
 
 import InputField from './components/InputField';
@@ -12,7 +13,7 @@ const App: React.FC = () => {
       <div className='App__logo'>
         <img src={logo} alt='logo' />
       </div>
-      <InputField />
+      <InputField todo={todo} setTodo={setTodo} />
     </div>
   );
 };
