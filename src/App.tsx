@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './App.scss';
 
@@ -28,7 +28,7 @@ const App: React.FC = () => {
         <img src={logo} alt='logo' />
       </div>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todos={todos} setTodos={setTodos}/>
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };
